@@ -35,7 +35,7 @@ Location-specific columns (e.g., district, city, area) are automatically removed
 Install dependencies:
 ```bash
 pip install pandas numpy scikit-learn 
-
+```
 ---
 
 ## Files
