@@ -43,21 +43,22 @@ adaboost_dengue_model.pkl
 scaler.pkl
 
 adaboost_dengue_model.pkl – Trained AdaBoost classifier
+
 scaler.pkl – Feature standardization scaler used during training
+
 Both files are required for prediction.
 
 ---
 
 ## Usage
 Load the Model and Scaler
+```
 import pickle
-
 with open("adaboost_dengue_model.pkl", "rb") as f:
     model = pickle.load(f)
-
 with open("scaler.pkl", "rb") as f:
     scaler = pickle.load(f)
-
+```
 ---
 
 ## Prepare Input Data
@@ -66,6 +67,7 @@ Input data must:
 - Include only clinical and hematological variables
 - Exclude any location-based information
 Example:
+```
 import pandas as pd
 
 X_new = pd.DataFrame([{
@@ -75,14 +77,16 @@ X_new = pd.DataFrame([{
     "Hemoglobin": 13.2,
     "RBC": 4.5
 }])
+```
 
 ---
 
-Make a Prediction
+## Make a Prediction
+```
 X_new_scaled = scaler.transform(X_new)
 prediction = model.predict(X_new_scaled)
 print("Dengue Positive" if prediction[0] == 1 else "Dengue Negative")
-
+```
 ---
 
 ## Notes
